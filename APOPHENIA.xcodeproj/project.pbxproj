@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23558D2F2446469000634446 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23558D2E2446469000634446 /* AppDelegate.m */; };
+		23558D322446469000634446 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23558D312446469000634446 /* SceneDelegate.m */; };
+		23558D352446469000634446 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23558D342446469000634446 /* ViewController.m */; };
+		23558D382446469000634446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23558D362446469000634446 /* Main.storyboard */; };
+		23558D3A2446469100634446 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23558D392446469100634446 /* Assets.xcassets */; };
+		23558D3D2446469100634446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23558D3B2446469100634446 /* LaunchScreen.storyboard */; };
+		23558D402446469100634446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23558D3F2446469100634446 /* main.m */; };
+		23558D47244646F900634446 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23558D46244646F900634446 /* SpotifyiOS.framework */; };
+		236BBB8224535D64008083A7 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 236BBB8124535D64008083A7 /* data.json */; };
+		23879CC8244F4BA10031E434 /* IBMPlexMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */; };
+		23879CC9244F4BA10031E434 /* IBMPlexMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */; };
+		23879CCA244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */; };
+		23879CCB244F4BA10031E434 /* IBMPlexMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBC244F4BA10031E434 /* IBMPlexMono-BoldItalic.ttf */; };
+		23879CCC244F4BA10031E434 /* IBMPlexMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBD244F4BA10031E434 /* IBMPlexMono-Medium.ttf */; };
+		23879CCD244F4BA10031E434 /* IBMPlexMono-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBE244F4BA10031E434 /* IBMPlexMono-ExtraLight.ttf */; };
+		23879CCE244F4BA10031E434 /* IBMPlexMono-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBF244F4BA10031E434 /* IBMPlexMono-ExtraLightItalic.ttf */; };
+		23879CCF244F4BA10031E434 /* IBMPlexMono-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC0244F4BA10031E434 /* IBMPlexMono-ThinItalic.ttf */; };
+		23879CD0244F4BA10031E434 /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC1244F4BA10031E434 /* IBMPlexMono-Regular.ttf */; };
+		23879CD1244F4BA10031E434 /* IBMPlexMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC2244F4BA10031E434 /* IBMPlexMono-Light.ttf */; };
+		23879CD2244F4BA10031E434 /* IBMPlexMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC3244F4BA10031E434 /* IBMPlexMono-Italic.ttf */; };
+		23879CD3244F4BA10031E434 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC4244F4BA10031E434 /* OFL.txt */; };
+		23879CD4244F4BA10031E434 /* IBMPlexMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC5244F4BA10031E434 /* IBMPlexMono-SemiBold.ttf */; };
+		23879CD5244F4BA10031E434 /* IBMPlexMono-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC6244F4BA10031E434 /* IBMPlexMono-SemiBoldItalic.ttf */; };
+		23879CD6244F4BA10031E434 /* IBMPlexMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CC7244F4BA10031E434 /* IBMPlexMono-LightItalic.ttf */; };
+		8A2C687152EAADA62A4A3196 /* Pods_APOPHENIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE2A9E4C537AA423345E868 /* Pods_APOPHENIA.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2068F986F596E2346B5B7984 /* Pods-APOPHENIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APOPHENIA.debug.xcconfig"; path = "Target Support Files/Pods-APOPHENIA/Pods-APOPHENIA.debug.xcconfig"; sourceTree = "<group>"; };
+		23558D2A2446469000634446 /* AP O PHE NIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AP O PHE NIA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23558D2D2446469000634446 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		23558D2E2446469000634446 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		23558D302446469000634446 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		23558D312446469000634446 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		23558D332446469000634446 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		23558D342446469000634446 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		23558D372446469000634446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23558D392446469100634446 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23558D3C2446469100634446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		23558D3E2446469100634446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23558D3F2446469100634446 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		23558D46244646F900634446 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		236BBB8124535D64008083A7 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Thin.ttf"; sourceTree = "<group>"; };
+		23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Bold.ttf"; sourceTree = "<group>"; };
+		23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-MediumItalic.ttf"; sourceTree = "<group>"; };
+		23879CBC244F4BA10031E434 /* IBMPlexMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-BoldItalic.ttf"; sourceTree = "<group>"; };
+		23879CBD244F4BA10031E434 /* IBMPlexMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Medium.ttf"; sourceTree = "<group>"; };
+		23879CBE244F4BA10031E434 /* IBMPlexMono-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ExtraLight.ttf"; sourceTree = "<group>"; };
+		23879CBF244F4BA10031E434 /* IBMPlexMono-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		23879CC0244F4BA10031E434 /* IBMPlexMono-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ThinItalic.ttf"; sourceTree = "<group>"; };
+		23879CC1244F4BA10031E434 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
+		23879CC2244F4BA10031E434 /* IBMPlexMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Light.ttf"; sourceTree = "<group>"; };
+		23879CC3244F4BA10031E434 /* IBMPlexMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Italic.ttf"; sourceTree = "<group>"; };
+		23879CC4244F4BA10031E434 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		23879CC5244F4BA10031E434 /* IBMPlexMono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-SemiBold.ttf"; sourceTree = "<group>"; };
+		23879CC6244F4BA10031E434 /* IBMPlexMono-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		23879CC7244F4BA10031E434 /* IBMPlexMono-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-LightItalic.ttf"; sourceTree = "<group>"; };
+		49302AF4F4D2EE3E5ED8E7F9 /* Pods-twostepshuffle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twostepshuffle.debug.xcconfig"; path = "Target Support Files/Pods-twostepshuffle/Pods-twostepshuffle.debug.xcconfig"; sourceTree = "<group>"; };
+		C09B161F366D83560459E53A /* Pods-twostepshuffle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twostepshuffle.release.xcconfig"; path = "Target Support Files/Pods-twostepshuffle/Pods-twostepshuffle.release.xcconfig"; sourceTree = "<group>"; };
+		CCE2A9E4C537AA423345E868 /* Pods_APOPHENIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APOPHENIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7E759DB6F1467AA4B1D8989 /* Pods-APOPHENIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APOPHENIA.release.xcconfig"; path = "Target Support Files/Pods-APOPHENIA/Pods-APOPHENIA.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23558D272446469000634446 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23558D47244646F900634446 /* SpotifyiOS.framework in Frameworks */,
+				8A2C687152EAADA62A4A3196 /* Pods_APOPHENIA.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23558D212446469000634446 = {
+			isa = PBXGroup;
+			children = (
+				236BBB8124535D64008083A7 /* data.json */,
+				23558D46244646F900634446 /* SpotifyiOS.framework */,
+				23558D2C2446469000634446 /* twostepshuffle */,
+				23558D2B2446469000634446 /* Products */,
+				50A9ECA3B511C315DA1BB904 /* Pods */,
+				BAF953471721F42137F85FAE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		23558D2B2446469000634446 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23558D2A2446469000634446 /* AP O PHE NIA.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23558D2C2446469000634446 /* twostepshuffle */ = {
+			isa = PBXGroup;
+			children = (
+				23558D2D2446469000634446 /* AppDelegate.h */,
+				23558D2E2446469000634446 /* AppDelegate.m */,
+				23558D302446469000634446 /* SceneDelegate.h */,
+				23558D312446469000634446 /* SceneDelegate.m */,
+				23558D332446469000634446 /* ViewController.h */,
+				23558D342446469000634446 /* ViewController.m */,
+				23558D362446469000634446 /* Main.storyboard */,
+				23558D392446469100634446 /* Assets.xcassets */,
+				23558D3B2446469100634446 /* LaunchScreen.storyboard */,
+				23558D3E2446469100634446 /* Info.plist */,
+				23558D3F2446469100634446 /* main.m */,
+				23879CB8244F4BA10031E434 /* IBM_Plex_Mono */,
+			);
+			path = twostepshuffle;
+			sourceTree = "<group>";
+		};
+		23879CB8244F4BA10031E434 /* IBM_Plex_Mono */ = {
+			isa = PBXGroup;
+			children = (
+				23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */,
+				23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */,
+				23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */,
+				23879CBC244F4BA10031E434 /* IBMPlexMono-BoldItalic.ttf */,
+				23879CBD244F4BA10031E434 /* IBMPlexMono-Medium.ttf */,
+				23879CBE244F4BA10031E434 /* IBMPlexMono-ExtraLight.ttf */,
+				23879CBF244F4BA10031E434 /* IBMPlexMono-ExtraLightItalic.ttf */,
+				23879CC0244F4BA10031E434 /* IBMPlexMono-ThinItalic.ttf */,
+				23879CC1244F4BA10031E434 /* IBMPlexMono-Regular.ttf */,
+				23879CC2244F4BA10031E434 /* IBMPlexMono-Light.ttf */,
+				23879CC3244F4BA10031E434 /* IBMPlexMono-Italic.ttf */,
+				23879CC4244F4BA10031E434 /* OFL.txt */,
+				23879CC5244F4BA10031E434 /* IBMPlexMono-SemiBold.ttf */,
+				23879CC6244F4BA10031E434 /* IBMPlexMono-SemiBoldItalic.ttf */,
+				23879CC7244F4BA10031E434 /* IBMPlexMono-LightItalic.ttf */,
+			);
+			path = IBM_Plex_Mono;
+			sourceTree = "<group>";
+		};
+		50A9ECA3B511C315DA1BB904 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49302AF4F4D2EE3E5ED8E7F9 /* Pods-twostepshuffle.debug.xcconfig */,
+				C09B161F366D83560459E53A /* Pods-twostepshuffle.release.xcconfig */,
+				2068F986F596E2346B5B7984 /* Pods-APOPHENIA.debug.xcconfig */,
+				D7E759DB6F1467AA4B1D8989 /* Pods-APOPHENIA.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BAF953471721F42137F85FAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCE2A9E4C537AA423345E868 /* Pods_APOPHENIA.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23558D292446469000634446 /* APOPHENIA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23558D432446469100634446 /* Build configuration list for PBXNativeTarget "APOPHENIA" */;
+			buildPhases = (
+				DB8CD540F8EAC372823DA825 /* [CP] Check Pods Manifest.lock */,
+				23558D262446469000634446 /* Sources */,
+				23558D272446469000634446 /* Frameworks */,
+				23558D282446469000634446 /* Resources */,
+				AB4DAF3CD18C64642351B3E6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APOPHENIA;
+			productName = twostepshuffle;
+			productReference = 23558D2A2446469000634446 /* AP O PHE NIA.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23558D222446469000634446 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Gabe Jacobs";
+				TargetAttributes = {
+					23558D292446469000634446 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+				};
+			};
+			buildConfigurationList = 23558D252446469000634446 /* Build configuration list for PBXProject "APOPHENIA" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23558D212446469000634446;
+			productRefGroup = 23558D2B2446469000634446 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23558D292446469000634446 /* APOPHENIA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23558D282446469000634446 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23879CD3244F4BA10031E434 /* OFL.txt in Resources */,
+				23879CCA244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf in Resources */,
+				23879CCF244F4BA10031E434 /* IBMPlexMono-ThinItalic.ttf in Resources */,
+				23558D3D2446469100634446 /* LaunchScreen.storyboard in Resources */,
+				23879CCC244F4BA10031E434 /* IBMPlexMono-Medium.ttf in Resources */,
+				23879CD5244F4BA10031E434 /* IBMPlexMono-SemiBoldItalic.ttf in Resources */,
+				23879CD0244F4BA10031E434 /* IBMPlexMono-Regular.ttf in Resources */,
+				236BBB8224535D64008083A7 /* data.json in Resources */,
+				23879CD2244F4BA10031E434 /* IBMPlexMono-Italic.ttf in Resources */,
+				23879CCD244F4BA10031E434 /* IBMPlexMono-ExtraLight.ttf in Resources */,
+				23879CCE244F4BA10031E434 /* IBMPlexMono-ExtraLightItalic.ttf in Resources */,
+				23558D3A2446469100634446 /* Assets.xcassets in Resources */,
+				23879CD4244F4BA10031E434 /* IBMPlexMono-SemiBold.ttf in Resources */,
+				23879CD1244F4BA10031E434 /* IBMPlexMono-Light.ttf in Resources */,
+				23879CCB244F4BA10031E434 /* IBMPlexMono-BoldItalic.ttf in Resources */,
+				23879CD6244F4BA10031E434 /* IBMPlexMono-LightItalic.ttf in Resources */,
+				23879CC8244F4BA10031E434 /* IBMPlexMono-Thin.ttf in Resources */,
+				23879CC9244F4BA10031E434 /* IBMPlexMono-Bold.ttf in Resources */,
+				23558D382446469000634446 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB4DAF3CD18C64642351B3E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-APOPHENIA/Pods-APOPHENIA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-APOPHENIA/Pods-APOPHENIA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-APOPHENIA/Pods-APOPHENIA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8CD540F8EAC372823DA825 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-APOPHENIA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23558D262446469000634446 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23558D352446469000634446 /* ViewController.m in Sources */,
+				23558D2F2446469000634446 /* AppDelegate.m in Sources */,
+				23558D402446469100634446 /* main.m in Sources */,
+				23558D322446469000634446 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		23558D362446469000634446 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23558D372446469000634446 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		23558D3B2446469100634446 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23558D3C2446469100634446 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23558D412446469100634446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		23558D422446469100634446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23558D442446469100634446 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2068F986F596E2346B5B7984 /* Pods-APOPHENIA.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3939LRJ2J8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = twostepshuffle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gabejacobs.twostepshuffle;
+				PRODUCT_NAME = "AP O PHE NIA";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23558D452446469100634446 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7E759DB6F1467AA4B1D8989 /* Pods-APOPHENIA.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3939LRJ2J8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = twostepshuffle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = gabejacobs.twostepshuffle;
+				PRODUCT_NAME = "AP O PHE NIA";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23558D252446469000634446 /* Build configuration list for PBXProject "APOPHENIA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23558D412446469100634446 /* Debug */,
+				23558D422446469100634446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23558D432446469100634446 /* Build configuration list for PBXNativeTarget "APOPHENIA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23558D442446469100634446 /* Debug */,
+				23558D452446469100634446 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23558D222446469000634446 /* Project object */;
+}

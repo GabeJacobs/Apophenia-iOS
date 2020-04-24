@@ -1,14 +1,16 @@
 //
 //  AppDelegate.m
-//  twostepshuffle
+//  twostepdance
 //
 //  Created by Gabe Jacobs on 4/14/20.
 //  Copyright © 2020 Gabe Jacobs. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import <MBProgressHUD.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <UIApplicationDelegate>
 
 @end
 
@@ -16,11 +18,148 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    NSString *spotifyClientID = @"70cfd503041e4dd095e5b9656d51060f";
+    NSURL *spotifyRedirectURL = [NSURL URLWithString:@"twostepshuffle://spotify-login-callback"];
+    self.configuration  = [[SPTConfiguration alloc] initWithClientID:spotifyClientID redirectURL:spotifyRedirectURL];
+    
+    
+    NSURL *tokenSwapURL = [NSURL URLWithString:@"https://spotify-twostepshuffle-token.herokuapp.com/api/token"];
+    NSURL *tokenRefreshURL = [NSURL URLWithString:@"https://spotify-twostepshuffle-token.herokuapp.com/api/refresh_token"];
+
+    self.configuration.tokenSwapURL = tokenSwapURL;
+    self.configuration.tokenRefreshURL = tokenRefreshURL;
+    self.configuration.playURI = @"spotify:collection:tracks";
+
+    self.sessionManager = [[SPTSessionManager alloc] initWithConfiguration:self.configuration delegate:self];
+    
+    self.appRemote = [[SPTAppRemote alloc] initWithConfiguration:self.configuration logLevel:SPTAppRemoteLogLevelDebug];
+    self.appRemote.delegate = self;
+    
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    [self.sessionManager application:app openURL:url options:options];
+    return true;
+}
 
+- (void)authSpotify{
+    SPTScope requestedScope = SPTPlaylistReadPrivateScope | SPTUserLibraryReadScope | SPTAppRemoteControlScope;
+    [self.sessionManager initiateSessionWithScope:requestedScope options:SPTDefaultAuthorizationOption];
+}
+
+- (void)skipSong {
+    __weak typeof(self) weakSelf = self;
+
+    if(!self.playerState.playbackOptions.isShuffling){
+        [self.appRemote.playerAPI setShuffle:YES callback:^(id  _Nullable result, NSError * _Nullable error) {
+           if(weakSelf.likedSongs){
+               [weakSelf.appRemote.playerAPI playItem:weakSelf.likedSongs callback:nil];
+           } else{
+               [weakSelf.appRemote.playerAPI skipToNext:nil];
+           }
+        }];
+    } else {
+        if(self.likedSongs){
+            [self.appRemote.playerAPI playItem:self.likedSongs callback:nil];
+        } else{
+            [self.appRemote.playerAPI skipToNext:nil];
+        }
+    }
+}
+
+#pragma mark - SPTSessionManagerDelegate
+
+- (void)sessionManager:(SPTSessionManager *)manager didInitiateSession:(SPTSession *)session
+{
+    NSLog(@"success: %@", session);
+    self.appRemote.connectionParameters.accessToken = session.accessToken;
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        [self.appRemote connect];
+    });
+
+}
+
+- (void)sessionManager:(SPTSessionManager *)manager didFailWithError:(NSError *)error
+{
+  NSLog(@"fail: %@", error);
+}
+
+- (void)sessionManager:(SPTSessionManager *)manager didRenewSession:(SPTSession *)session
+{
+  NSLog(@"renewed: %@", session);
+}
+    
+#pragma mark - SPTAppRemoteDelegate
+
+- (void)appRemoteDidEstablishConnection:(SPTAppRemote *)appRemote
+{
+    self.appRemote = appRemote;
+    [[NSNotificationCenter defaultCenter]
+           postNotificationName:@"SpotifyConnected"
+           object:self];
+
+  // Connection was successful, you can begin issuing commands
+    self.appRemote.playerAPI.delegate = self;
+    
+      [self.appRemote.playerAPI subscribeToPlayerState:^(id _Nullable result, NSError * _Nullable error) {
+          if (error) {
+          NSLog(@"error: %@", error.localizedDescription);
+        }
+      }];
+
+    
+    [self.appRemote.playerAPI getPlayerState:^(id  _Nullable result, NSError * _Nullable error) {
+          self.playerState = (id<SPTAppRemotePlayerState>) result;
+    }];
+    
+    __weak __typeof(self) weakSelf = self;
+
+
+    [self.appRemote.contentAPI fetchRootContentItemsForType:SPTAppRemoteContentTypeDefault callback:^(id  _Nullable result, NSError * _Nullable error) {
+
+               NSArray *array = (NSArray*)result;
+                 for (id<SPTAppRemoteContentItem>item in array) {
+                     if([item.title isEqualToString:@"Your Library"]){
+                        [self.appRemote.contentAPI fetchChildrenOfContentItem:item callback:^(id  _Nullable result, NSError * _Nullable error) {
+                             NSArray *array = (NSArray*)result;
+                                      for (id<SPTAppRemoteContentItem>item in array) {
+                                          
+                                          if([item.title isEqualToString:@"Liked Songs"]){
+                                              weakSelf.likedSongs = item;
+                                          }
+//                                          NSLog(@"%@",item.title);
+//                                          NSLog(@"%@",item.URI);
+
+                                      }
+                           }];
+                     }
+                 }
+
+    }];
+}
+
+- (void)playerStateDidChange:(id<SPTAppRemotePlayerState>)playerState
+{
+  self.playerState = playerState;
+    [[NSNotificationCenter defaultCenter]
+            postNotificationName:@"TrackChanged"
+            object:self];
+}
+
+- (void)appRemote:(SPTAppRemote *)appRemote didDisconnectWithError:(NSError *)error
+{
+  NSLog(@"disconnected");
+}
+
+- (void)appRemote:(SPTAppRemote *)appRemote didFailConnectionAttemptWithError:(NSError *)error
+{
+  NSLog(@"failed");
+}
+
+    
 #pragma mark - UISceneSession lifecycle
 
 
@@ -31,11 +170,16 @@
 }
 
 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+- (void)connect{
+  if (!self.appRemote.isConnected) {
+       [self.appRemote connect];
+  } 
 }
 
+- (void)disconnect{
+  if (self.appRemote.isConnected) {
+      [self.appRemote disconnect];
+  }
+}
 
 @end
