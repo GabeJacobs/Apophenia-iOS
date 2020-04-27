@@ -16,7 +16,6 @@
 
 @property (nonatomic, strong) NSArray *videoURLs;
 @property (nonatomic) AVPlayer *player;
-
 @property (nonatomic) UIVisualEffectView *blurEffectView;
 
 @property (nonatomic) UIButton *switchDanceBUFFER;
@@ -44,6 +43,12 @@
 
 @property (nonatomic) NSMutableArray *dataSource;
 @property int currentVideoIndex;
+@property (nonatomic) NSMutableArray *arrayOfVideoIndexSelections;
+@property (nonatomic) UIImageView *activityView;
+@property BOOL didLoadFirstVideo;
+@property(nonatomic, readonly, getter=isReadyForDisplay) BOOL readyForDisplay;
+@property (nonatomic) AVPlayerLayer *playerLayer;
+
 
 @property (nonatomic, strong) SPTAppRemote *appRemote;
 @property (nonatomic, strong) AVPlayerViewController *controller;

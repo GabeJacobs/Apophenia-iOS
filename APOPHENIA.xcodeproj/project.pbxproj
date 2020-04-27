@@ -16,6 +16,7 @@
 		23558D402446469100634446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23558D3F2446469100634446 /* main.m */; };
 		23558D47244646F900634446 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23558D46244646F900634446 /* SpotifyiOS.framework */; };
 		236BBB8224535D64008083A7 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 236BBB8124535D64008083A7 /* data.json */; };
+		236BBC0424574EA2008083A7 /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236BBC0324574EA2008083A7 /* Loading.gif */; };
 		23879CC8244F4BA10031E434 /* IBMPlexMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */; };
 		23879CC9244F4BA10031E434 /* IBMPlexMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */; };
 		23879CCA244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */; };
@@ -50,6 +51,7 @@
 		23558D3F2446469100634446 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		23558D46244646F900634446 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		236BBB8124535D64008083A7 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		236BBC0324574EA2008083A7 /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
 		23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Thin.ttf"; sourceTree = "<group>"; };
 		23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Bold.ttf"; sourceTree = "<group>"; };
 		23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				236BBB8124535D64008083A7 /* data.json */,
+				236BBC0324574EA2008083A7 /* Loading.gif */,
 				23558D46244646F900634446 /* SpotifyiOS.framework */,
 				23558D2C2446469000634446 /* twostepshuffle */,
 				23558D2B2446469000634446 /* Products */,
@@ -235,6 +238,7 @@
 				23879CCD244F4BA10031E434 /* IBMPlexMono-ExtraLight.ttf in Resources */,
 				23879CCE244F4BA10031E434 /* IBMPlexMono-ExtraLightItalic.ttf in Resources */,
 				23558D3A2446469100634446 /* Assets.xcassets in Resources */,
+				236BBC0424574EA2008083A7 /* Loading.gif in Resources */,
 				23879CD4244F4BA10031E434 /* IBMPlexMono-SemiBold.ttf in Resources */,
 				23879CD1244F4BA10031E434 /* IBMPlexMono-Light.ttf in Resources */,
 				23879CCB244F4BA10031E434 /* IBMPlexMono-BoldItalic.ttf in Resources */,
@@ -439,12 +443,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3939LRJ2J8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = twostepshuffle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,12 +467,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3939LRJ2J8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = twostepshuffle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

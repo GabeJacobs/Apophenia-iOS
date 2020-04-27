@@ -7,6 +7,7 @@ target 'APOPHENIA' do
 
     pod 'MBProgressHUD'
     pod 'SDWebImage'
-  # Pods for twostepshuffle
+
+    # Pods for twostepshuffle
 
 end

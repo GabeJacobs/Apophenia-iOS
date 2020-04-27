@@ -54,13 +54,14 @@ API_AVAILABLE(ios(13.0)){
 
 - (void)sceneDidBecomeActive:(UIScene *)scene {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate connect];
+    [appDelegate.appRemote.playerAPI resume:nil];
 }
 
 
 - (void)sceneWillResignActive:(UIScene *)scene {
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [appDelegate disconnect];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.appRemote.playerAPI pause:nil];
+    
 }
 
 

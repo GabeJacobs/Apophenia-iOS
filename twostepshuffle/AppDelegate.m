@@ -52,21 +52,25 @@
 
 - (void)skipSong {
     __weak typeof(self) weakSelf = self;
-
-    if(!self.playerState.playbackOptions.isShuffling){
-        [self.appRemote.playerAPI setShuffle:YES callback:^(id  _Nullable result, NSError * _Nullable error) {
-           if(weakSelf.likedSongs){
-               [weakSelf.appRemote.playerAPI playItem:weakSelf.likedSongs callback:nil];
-           } else{
-               [weakSelf.appRemote.playerAPI skipToNext:nil];
-           }
-        }];
-    } else {
-        if(self.likedSongs){
-            [self.appRemote.playerAPI playItem:self.likedSongs callback:nil];
-        } else{
-            [self.appRemote.playerAPI skipToNext:nil];
-        }
+    
+    if(!self.appRemote.isConnected){
+        [self authSpotify];
+    } else{
+        if(!self.playerState.playbackOptions.isShuffling){
+              [self.appRemote.playerAPI setShuffle:YES callback:^(id  _Nullable result, NSError * _Nullable error) {
+                 if(weakSelf.likedSongs){
+                     [weakSelf.appRemote.playerAPI playItem:weakSelf.likedSongs callback:nil];
+                 } else{
+                     [weakSelf.appRemote.playerAPI skipToNext:nil];
+                 }
+              }];
+          } else {
+              if(self.likedSongs){
+                  [self.appRemote.playerAPI playItem:self.likedSongs callback:nil];
+              } else{
+                  [self.appRemote.playerAPI skipToNext:nil];
+              }
+          }
     }
 }
 
@@ -76,15 +80,20 @@
 {
     NSLog(@"success: %@", session);
     self.appRemote.connectionParameters.accessToken = session.accessToken;
-    dispatch_async(dispatch_get_main_queue(), ^(void){
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.appRemote connect];
+
     });
+
+  
 
 }
 
 - (void)sessionManager:(SPTSessionManager *)manager didFailWithError:(NSError *)error
 {
-  NSLog(@"fail: %@", error);
+   [[NSNotificationCenter defaultCenter]
+                postNotificationName:@"SpotifyError"
+                object:self];
 }
 
 - (void)sessionManager:(SPTSessionManager *)manager didRenewSession:(SPTSession *)session
@@ -156,7 +165,9 @@
 
 - (void)appRemote:(SPTAppRemote *)appRemote didFailConnectionAttemptWithError:(NSError *)error
 {
-  NSLog(@"failed");
+    [[NSNotificationCenter defaultCenter]
+               postNotificationName:@"SpotifyError"
+               object:self];
 }
 
     

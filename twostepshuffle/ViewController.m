@@ -21,6 +21,8 @@
     [super viewDidLoad];
     
     [self createDataSource];
+    [self populateVideoIndexArray];
+    
     self.currentVideoIndex = 0;
     
     self.view.backgroundColor = [UIColor blackColor];
@@ -32,13 +34,28 @@
 
     [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
     NSDictionary *videoDict = self.dataSource[self.currentVideoIndex];
-    self.player = [AVPlayer playerWithURL:[NSURL URLWithString:[videoDict objectForKey:@"video_url"]]];
+    AVPlayerItem* playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:[videoDict objectForKey:@"video_url"]]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    
     self.controller = [[AVPlayerViewController alloc] init];
+    
+    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    [self.playerLayer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:NULL];
     
     [self addChildViewController:self.controller];
     self.controller.view.alpha = 0.0;
     [self.view addSubview:self.controller.view];
-
+    
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource: @"Loading" ofType: @"gif"];
+    NSData *gifData = [NSData dataWithContentsOfFile: filePath];
+    
+    self.activityView = [[UIImageView alloc] initWithImage:[UIImage sd_imageWithGIFData:gifData]];
+    self.activityView.frame = CGRectMake(0, 0, 60, 60);
+    self.activityView.center= self.view.center;
+    [self.view addSubview:self.activityView];
+    
     self.controller.view.frame = self.view.bounds;
     self.controller.view.frame = CGRectMake(self.controller.view.frame.origin.x, self.controller.view.frame.origin.y, self.controller.view.frame.size.width, self.controller.view.frame.size.height);
     self.controller.view.center = self.view.center;
@@ -48,13 +65,7 @@
     [self.player play];
 
     self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.player currentItem]];
-    [self.player addObserver:self
-    forKeyPath:@"status"
+    [self.player addObserver:self forKeyPath:@"status"
        options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial)
        context:nil];
     
@@ -104,7 +115,7 @@
     self.albumArt.backgroundColor = [UIColor lightGrayColor];
     [_leftSideControls addSubview:self.albumArt];
     
-    self.songTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.albumArt.frame.origin.x + self.albumArt.frame.size.width + 7, self.albumArt.frame.origin.y + 21, self.leftSideControls.frame.size.width - (self.albumArt.frame.origin.x + self.albumArt.frame.size.width + 3) - 5, 15)];
+    self.songTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.albumArt.frame.origin.x + self.albumArt.frame.size.width + 7, self.albumArt.frame.origin.y + self.albumArt.frame.size.height/4, self.leftSideControls.frame.size.width - (self.albumArt.frame.origin.x + self.albumArt.frame.size.width + 3) - 5, 15)];
     self.songTitle.textColor = [UIColor whiteColor];
     self.songTitle.text = @"Jupiter 4";
     self.songTitle.font = [UIFont fontWithName:@"IBMPlexMono-Bold" size:11];
@@ -257,23 +268,31 @@
          object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+           selector:@selector(didHaveSpotifyError:)
+           name:@"SpotifyError"
+           object:nil];
+      
+    [[NSNotificationCenter defaultCenter] addObserver:self
          selector:@selector(trackChanged:)
          name:@"TrackChanged"
          object:nil];
     
+    [self firstAppAnimation];
+    
 //    [self didConnectSpotify:nil];
-
 
 }
 
 - (void)createDataSource {
-    self.dataSource = [[self JSONFromFile] mutableCopy];
+      self.dataSource = [[self JSONFromFile] mutableCopy];
 }
 
 - (NSArray *)JSONFromFile
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSString *url_string = [NSString stringWithFormat: @"http://s729457504.onlinehome.us/data.json"];
+    NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString:url_string]];
     return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 }
 
@@ -309,10 +328,24 @@
 
 }
 
-- (void)playerItemDidReachEnd:(NSNotification *)notification {
+- (void)didHaveSpotifyError:(NSNotification *)notification{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Connection Error"
+                                   message:@"Try quitting Spotify and then connecting again."
+                                   preferredStyle:UIAlertControllerStyleAlert];
+     
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+       handler:^(UIAlertAction * action) {}];
+     
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+-(void)itemDidFinishPlaying:(NSNotification *) notification {
     [self.player seekToTime:kCMTimeZero];
     [self.player play];
-
 }
 
 - (void)openYoutube {
@@ -332,13 +365,58 @@
 
 }
 
-- (void)switchDanceTapped{
-    self.currentVideoIndex = arc4random_uniform(24);
+- (void)populateVideoIndexArray{
+    self.arrayOfVideoIndexSelections = [NSMutableArray array];
+    int i = 0;
+    while(i < self.dataSource.count){
+        [self.arrayOfVideoIndexSelections addObject:[NSNumber numberWithInt:i]];
+        i++;
+    }
+    NSUInteger count = [self.arrayOfVideoIndexSelections count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        int nElements = count - i;
+        int n = (arc4random() % nElements) + i;
+        [self.arrayOfVideoIndexSelections exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
+
+-(int)getVideoIndex{
+    if(self.arrayOfVideoIndexSelections.count > 0){
+        NSNumber *n = [self.arrayOfVideoIndexSelections lastObject];
+        [self.arrayOfVideoIndexSelections removeLastObject];
+        return [n intValue];
+    } else{
+        [self populateVideoIndexArray];
+        return [self getVideoIndex];
+    }
+}
+
+
+- (void)switchDanceTapped {
+    [self.playerLayer removeObserver:self forKeyPath:@"readyForDisplay"];
+    self.playerLayer = nil;
+    self.activityView.hidden = NO;
+    
+    self.currentVideoIndex = [self getVideoIndex];
+
     NSDictionary *dict = self.dataSource[self.currentVideoIndex];
     NSURL *url = [NSURL URLWithString:dict[@"video_url"]];
+    AVPlayerItem* playerItem = [AVPlayerItem playerItemWithURL:url];
+//    url = [NSURL URLWithString:@"http://s729457504.onlinehome.us/videos_compressed/0.webm"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+
     NSString *videoTitle = dict[@"video_title"];
 
-    self.player = [AVPlayer playerWithURL:url];
+    self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    [self.player addObserver:self forKeyPath:@"status"
+       options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial)
+                     context:nil];
+   
+    self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    [self.playerLayer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:NULL];
+
+    
     self.youtubeTitle.text = videoTitle;
     
     self.controller.view.frame = self.view.bounds;
@@ -348,6 +426,7 @@
     [self.controller.player setMuted:YES];
     self.controller.showsPlaybackControls = NO;
     [self.player play];
+    
 
 }
 - (void)switchMusicTapped {
@@ -361,7 +440,8 @@
 - (void)connectSpotify{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate authSpotify];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.label.text = @"Connecting...";
 }
 
 - (void)hideButtonsTapped{
@@ -382,7 +462,42 @@
     }
 }
 
-- (void)spotifyConnected {
+- (void)firstAppAnimation {
+    [UIView animateWithDuration:0.5 delay:.3 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.controller.view.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3 delay:.2 options:UIViewAnimationOptionCurveLinear animations:^{
+                      self.inAppLogo.alpha = 1.0;
+                  } completion:^(BOOL finished) {
+                      [UIView animateWithDuration:1.0
+                           delay:0.0
+                         options:0
+                      animations:^{
+                          CABasicAnimation* rotationAnimation;
+                            rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+                          rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//                            rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 * 1 * 1.0 ];
+                          rotationAnimation.duration = .5;
+                            rotationAnimation.cumulative = YES;
+
+                          [CATransaction begin];
+
+                          [CATransaction setCompletionBlock:^{
+                              [self fadeOutLogoFadeInDescription];
+                          }];
+
+                          [self.inAppLogo.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+
+                          [CATransaction commit];
+                   
+
+
+                      }
+                      completion:^(BOOL finished){
+                          NSLog(@"Done!");
+                      }];
+                  }];
+    }];
 
 }
 
@@ -391,45 +506,15 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     
+    if([self.playerLayer isReadyForDisplay]){
+        self.activityView.hidden = YES;
+        NSLog(@"PLAYING");
+    }
+    
+    
     if (object == _player && [keyPath isEqualToString:@"status"]) {
         if (_player.status == AVPlayerStatusReadyToPlay) {
-            NSLog(@"PLAYING");
-            [UIView animateWithDuration:0.5 delay:.3 options:UIViewAnimationOptionCurveLinear animations:^{
-                self.controller.view.alpha = 1.0;
-            } completion:^(BOOL finished) {
-                [UIView animateWithDuration:0.3 delay:.2 options:UIViewAnimationOptionCurveLinear animations:^{
-                              self.inAppLogo.alpha = 1.0;
-                          } completion:^(BOOL finished) {
-                              [UIView animateWithDuration:1.0
-                                   delay:0.0
-                                 options:0
-                              animations:^{
-                                  CABasicAnimation* rotationAnimation;
-                                    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-                                  rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-                                    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 * 1 * 1.0 ];
-                                    rotationAnimation.duration = 1.3;
-                                    rotationAnimation.cumulative = YES;
-
-                                  [CATransaction begin];
-
-                                  [CATransaction setCompletionBlock:^{
-                                      [self fadeOutLogoFadeInDescription];
-                                  }];
-
-                                  [self.inAppLogo.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-
-                                  [CATransaction commit];
-                           
-
-
-                              }
-                              completion:^(BOOL finished){
-                                  NSLog(@"Done!");
-                              }];
-                          }];
-            }];
-
+            
         }
     }
 }
