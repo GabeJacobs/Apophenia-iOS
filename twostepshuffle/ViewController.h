@@ -53,5 +53,7 @@
 @property (nonatomic, strong) SPTAppRemote *appRemote;
 @property (nonatomic, strong) AVPlayerViewController *controller;
 @property (nonatomic, strong) id playerObserver;
+
+
 @end
 

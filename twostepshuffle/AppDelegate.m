@@ -9,16 +9,19 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import <MBProgressHUD.h>
+#import <StoreKit/StoreKit.h>
+@import Firebase;
 
 @interface AppDelegate () <UIApplicationDelegate>
 
 @end
 
+
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     NSString *spotifyClientID = @"70cfd503041e4dd095e5b9656d51060f";
     NSURL *spotifyRedirectURL = [NSURL URLWithString:@"twostepshuffle://spotify-login-callback"];
     self.configuration  = [[SPTConfiguration alloc] initWithClientID:spotifyClientID redirectURL:spotifyRedirectURL];
@@ -36,6 +39,10 @@
     self.appRemote = [[SPTAppRemote alloc] initWithConfiguration:self.configuration logLevel:SPTAppRemoteLogLevelDebug];
     self.appRemote.delegate = self;
     
+    [FIRApp configure];
+    [FIRAnalytics logEventWithName:kFIREventLogin parameters:nil];
+
+    
     return YES;
 }
 
@@ -46,8 +53,19 @@
 }
 
 - (void)authSpotify{
-    SPTScope requestedScope = SPTPlaylistReadPrivateScope | SPTUserLibraryReadScope | SPTAppRemoteControlScope;
-    [self.sessionManager initiateSessionWithScope:requestedScope options:SPTDefaultAuthorizationOption];
+    if(self.sessionManager.spotifyAppInstalled){
+        SPTScope requestedScope = SPTPlaylistReadPrivateScope | SPTUserLibraryReadScope | SPTAppRemoteControlScope;
+        [self.sessionManager initiateSessionWithScope:requestedScope options:SPTDefaultAuthorizationOption];
+    }
+    else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                      [[NSNotificationCenter defaultCenter]
+                      postNotificationName:@"SpotifyNotInstalled"
+                      object:self];
+          });
+        NSString *iTunesLink = @"https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580?mt=8";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+    }
 }
 
 - (void)skipSong {
