@@ -64,7 +64,7 @@
                       object:self];
           });
         NSString *iTunesLink = @"https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580?mt=8";
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink] options:nil completionHandler:nil];
     }
 }
 

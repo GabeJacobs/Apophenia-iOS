@@ -49,7 +49,6 @@
 @property(nonatomic, readonly, getter=isReadyForDisplay) BOOL readyForDisplay;
 @property (nonatomic) AVPlayerLayer *playerLayer;
 
-
 @property (nonatomic, strong) SPTAppRemote *appRemote;
 @property (nonatomic, strong) AVPlayerViewController *controller;
 @property (nonatomic, strong) id playerObserver;

@@ -510,8 +510,13 @@
          "video_title" : "Royal Khon Performance(โขนพระราชทาน) : Thai ballet and classical dance : Prelude Dance"
     },
     {
-         "video_url" : "hhttps://player.vimeo.com/external/412798753.m3u8?s=d1f6866d862a2cee4b4b47727ff5e8993582ebf5",
+         "video_url" : "https://player.vimeo.com/external/412798753.m3u8?s=d1f6866d862a2cee4b4b47727ff5e8993582ebf5",
          "youtube_url" : "https://www.youtube.com/watch?v=zor8efwULf8",
          "video_title" : "Clogging Nationals 1st Place! Bellhop"
     },
+    {
+         "video_url" : "https://player.vimeo.com/external/412790999.m3u8?s=8a136dbc467c67ff01cfd31fbe19fcd29961c5b3",
+         "youtube_url" : "https://www.youtube.com/watch?v=NMA5kgajhEA",
+         "video_title" : "TAP THIS! - \"Honey I'm Good\" Cloggers - Clogging Champions"
+    }
 ]
