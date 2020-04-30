@@ -17,7 +17,6 @@
 		23558D47244646F900634446 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23558D46244646F900634446 /* SpotifyiOS.framework */; };
 		236BBB8224535D64008083A7 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 236BBB8124535D64008083A7 /* data.json */; };
 		236BBC0424574EA2008083A7 /* Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236BBC0324574EA2008083A7 /* Loading.gif */; };
-		2377202E2459EF8D00DD7AF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2377202D2459EF8D00DD7AF6 /* GoogleService-Info.plist */; };
 		23879CC8244F4BA10031E434 /* IBMPlexMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */; };
 		23879CC9244F4BA10031E434 /* IBMPlexMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */; };
 		23879CCA244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */; };
@@ -38,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2068F986F596E2346B5B7984 /* Pods-APOPHENIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APOPHENIA.debug.xcconfig"; path = "Target Support Files/Pods-APOPHENIA/Pods-APOPHENIA.debug.xcconfig"; sourceTree = "<group>"; };
-		23558D2A2446469000634446 /* APOPHENIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APOPHENIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23558D2A2446469000634446 /* AP O PHE NIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AP O PHE NIA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23558D2D2446469000634446 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		23558D2E2446469000634446 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		23558D302446469000634446 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -53,7 +52,6 @@
 		23558D46244646F900634446 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		236BBB8124535D64008083A7 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		236BBC0324574EA2008083A7 /* Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Loading.gif; sourceTree = "<group>"; };
-		2377202D2459EF8D00DD7AF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		23879CB9244F4BA10031E434 /* IBMPlexMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Thin.ttf"; sourceTree = "<group>"; };
 		23879CBA244F4BA10031E434 /* IBMPlexMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Bold.ttf"; sourceTree = "<group>"; };
 		23879CBB244F4BA10031E434 /* IBMPlexMono-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		23558D212446469000634446 = {
 			isa = PBXGroup;
 			children = (
-				2377202D2459EF8D00DD7AF6 /* GoogleService-Info.plist */,
 				236BBB8124535D64008083A7 /* data.json */,
 				236BBC0324574EA2008083A7 /* Loading.gif */,
 				23558D46244646F900634446 /* SpotifyiOS.framework */,
@@ -105,7 +102,7 @@
 		23558D2B2446469000634446 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23558D2A2446469000634446 /* APOPHENIA.app */,
+				23558D2A2446469000634446 /* AP O PHE NIA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +186,7 @@
 			);
 			name = APOPHENIA;
 			productName = twostepshuffle;
-			productReference = 23558D2A2446469000634446 /* APOPHENIA.app */;
+			productReference = 23558D2A2446469000634446 /* AP O PHE NIA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -249,7 +246,6 @@
 				23879CC8244F4BA10031E434 /* IBMPlexMono-Thin.ttf in Resources */,
 				23879CC9244F4BA10031E434 /* IBMPlexMono-Bold.ttf in Resources */,
 				23558D382446469000634446 /* Main.storyboard in Resources */,
-				2377202E2459EF8D00DD7AF6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3939LRJ2J8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,8 +456,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gabejacobs.twostepshuffle;
-				PRODUCT_NAME = APOPHENIA;
-				TARGETED_DEVICE_FAMILY = 1;
+				PRODUCT_NAME = "AP O PHE NIA";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -471,7 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3939LRJ2J8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,8 +480,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gabejacobs.twostepshuffle;
-				PRODUCT_NAME = APOPHENIA;
-				TARGETED_DEVICE_FAMILY = 1;
+				PRODUCT_NAME = "AP O PHE NIA";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
