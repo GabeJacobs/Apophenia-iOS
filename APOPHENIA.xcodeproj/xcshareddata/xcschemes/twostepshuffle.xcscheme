@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "23558D292446469000634446"
-               BuildableName = "AP O PHE NIA.app"
+               BuildableName = "APOPHENIA.app"
                BlueprintName = "APOPHENIA"
                ReferencedContainer = "container:APOPHENIA.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "23558D292446469000634446"
-            BuildableName = "AP O PHE NIA.app"
+            BuildableName = "APOPHENIA.app"
             BlueprintName = "APOPHENIA"
             ReferencedContainer = "container:APOPHENIA.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "23558D292446469000634446"
-            BuildableName = "AP O PHE NIA.app"
+            BuildableName = "APOPHENIA.app"
             BlueprintName = "APOPHENIA"
             ReferencedContainer = "container:APOPHENIA.xcodeproj">
          </BuildableReference>
