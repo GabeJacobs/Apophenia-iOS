@@ -28,7 +28,7 @@ GEM
     rack (2.0.4)
     rack-protection (2.0.0)
       rack
-    rake (12.3.0)
+    rake (13.0.1)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -72,5 +72,3 @@ DEPENDENCIES
   rspec
   sinatra
   sinatra-contrib
-
-
